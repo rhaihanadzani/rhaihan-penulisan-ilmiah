@@ -25,21 +25,7 @@ class PelajaranSeeder extends Seeder
             ['nama' => 'Pelajaran 8'],
             ['nama' => 'Pelajaran 9'],
             ['nama' => 'Pelajaran 10'],
-            ['nama' => 'Pelajaran 11'],
-            ['nama' => 'Pelajaran 12'],
-            ['nama' => 'Pelajaran 13'],
-            ['nama' => 'Pelajaran 14'],
-            ['nama' => 'Pelajaran 15'],
-            ['nama' => 'Pelajaran 16'],
-            ['nama' => 'Pelajaran 17'],
-            ['nama' => 'Pelajaran 18'],
-            ['nama' => 'Pelajaran 19'],
-            ['nama' => 'Pelajaran 20'],
-            ['nama' => 'Pelajaran 21'],
-            ['nama' => 'Pelajaran 22'],
-            ['nama' => 'Pelajaran 23'],
-            ['nama' => 'Pelajaran 24'],
-            ['nama' => 'Pelajaran 25'],
+
         ];
 
         foreach ($bulas as $pelajaran) {
