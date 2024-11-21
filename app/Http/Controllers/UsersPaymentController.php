@@ -117,7 +117,7 @@ class UsersPaymentController extends Controller
                     'user_id' => Auth::id(),
                     'card_payments_id' => $cardPayment->id,
                     'bulan' => $bulan,
-                    'is_paid' => true,
+                    'is_paid' => 1,
                     'invoice_id' => $invoice->id,
                 ]);
             }

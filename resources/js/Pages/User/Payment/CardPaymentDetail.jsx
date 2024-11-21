@@ -58,6 +58,8 @@ const CardPaymentDetail = () => {
                     didOpen: () => {
                         MySwal.showLoading();
                     },
+                    timer: 1000,
+                    timerProgressBar: true,
                 });
             },
             onProgress: () => {
