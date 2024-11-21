@@ -127,6 +127,8 @@ class UsersPaymentController extends Controller
         }
         DB::commit();
 
+
+
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = config('midtrans.server_key');
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
@@ -138,12 +140,12 @@ class UsersPaymentController extends Controller
 
         $params = array(
             'transaction_details' => array(
-                'order_id' => $invoice->id,
+                'order_id' => "ORDER-" . time(),
                 'gross_amount' => $invoice->total_amount,
             ),
             'customer_details' => array(
                 'name' => $user->name,
-                'phone' => $user->profile->phone,
+                'phone' => "081322311801",
 
             ),
         );
