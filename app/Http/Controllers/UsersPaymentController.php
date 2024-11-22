@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
 
 class UsersPaymentController extends Controller
@@ -58,18 +59,18 @@ class UsersPaymentController extends Controller
 
         // Inisialisasi array bulan dengan status pembayaran
         $bulanList = [
-            'Januari' => false,
-            'Februari' => false,
-            'Maret' => false,
-            'April' => false,
-            'Mei' => false,
-            'Juni' => false,
-            'Juli' => false,
-            'Agustus' => false,
-            'September' => false,
-            'Oktober' => false,
-            'November' => false,
-            'Desember' => false,
+            'Januari' => 0,
+            'Februari' => 0,
+            'Maret' => 0,
+            'April' => 0,
+            'Mei' => 0,
+            'Juni' => 0,
+            'Juli' => 0,
+            'Agustus' => 0,
+            'September' => 0,
+            'Oktober' => 0,
+            'November' => 0,
+            'Desember' => 0,
         ];
 
         // Update status pembayaran untuk setiap bulan
@@ -99,6 +100,7 @@ class UsersPaymentController extends Controller
 
         $monthlyPrice = $cardPayment->price;
         $totalPrice = count($request->bulan) * $monthlyPrice; // Calculate total price
+        $invoice = null;
 
         DB::beginTransaction();
         try {
@@ -117,7 +119,7 @@ class UsersPaymentController extends Controller
                     'user_id' => Auth::id(),
                     'card_payments_id' => $cardPayment->id,
                     'bulan' => $bulan,
-                    'is_paid' => 1,
+                    'is_paid' => false,
                     'invoice_id' => $invoice->id,
                 ]);
             }
@@ -126,6 +128,8 @@ class UsersPaymentController extends Controller
             throw $e;
         }
         DB::commit();
+
+
 
 
 
@@ -140,7 +144,7 @@ class UsersPaymentController extends Controller
 
         $params = array(
             'transaction_details' => array(
-                'order_id' => "ORDER-" . time(),
+                'order_id' => $invoice->uuid,
                 'gross_amount' => $invoice->total_amount,
             ),
             'customer_details' => array(
@@ -154,7 +158,7 @@ class UsersPaymentController extends Controller
         // dd($snapToken);
         session([
             'snapToken' => $snapToken,
-            'invoice_id' => $invoice->id,
+            'invoice_id' => $invoice->uuid,
         ]);
 
         // return redirect('/payment/' . $order->id);
@@ -165,12 +169,43 @@ class UsersPaymentController extends Controller
 
     public function callback(Request $request)
     {
+
+
         $server_key = config('midtrans.server_key');
+
         $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $server_key);
-        if ($hashed == $request->signature_key) {
-            if ($request->transaction_status == 'capture' || $request->transaction_status == 'settlement') {
-                $invoice = Invoice::find($request->order_id);
+
+        // if ($hashed == $request->signature_key) {
+        //     if ($request->transaction_status == 'capture' || $request->transaction_status == 'settlement') {
+        //         // Temukan invoice berdasarkan order_id
+        //         $invoice = Invoice::where('uuid', $request->order_id)->first();
+
+
+
+        //         if ($invoice) {
+        //             // Update status invoice menjadi paid
+        //             $invoice->update(['is_paid' => true]);
+
+        //             // Update semua payment terkait menjadi is_paid = true
+        //             Payment::where('invoice_id', $invoice->id)->update(['is_paid' => true]);
+        //         }
+        //     }
+        // }
+        if ($request->transaction_status == 'capture' || $request->transaction_status == 'settlement') {
+
+
+
+            $invoice = Invoice::where('uuid', $request->order_id)->first();
+
+
+
+            if ($invoice) {
+                // Update status invoice menjadi paid
                 $invoice->update(['is_paid' => true]);
+
+                // Update semua payment terkait menjadi is_paid = true
+                Payment::where('invoice_id', $invoice->id)->update(['is_paid' => true]);
+                session()->forget(['snapToken', 'invoice_id']);
             }
         }
     }

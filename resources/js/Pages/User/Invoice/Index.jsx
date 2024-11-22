@@ -1,7 +1,7 @@
 import { Button } from "@/Components/ui/button";
 import DashboardLayoutUser from "@/Layouts/DashboardLayoutUser";
 import { formatToRupiah } from "@/lib/utils";
-import { usePage } from "@inertiajs/react";
+import { router, usePage } from "@inertiajs/react";
 import { useEffect } from "react";
 import withReactContent from "sweetalert2-react-content";
 import Swal from "sweetalert2";
@@ -37,6 +37,7 @@ const Index = () => {
                         confirmButtonText: "Ok",
                     });
                     // Redirect or handle success logic
+                    router.visit(`/santri-invoice/${invoices.uuid}`);
                 },
                 onPending: (result) => {
                     MySwal.fire({

@@ -106,7 +106,7 @@ const CardPaymentDetail = () => {
                                     <div className="flex gap-5 flex-wrap items-center">
                                         {Object.entries(bulanList).map(
                                             ([bulan, isPaid]) =>
-                                                !isPaid ? (
+                                                isPaid === 0 ? (
                                                     <div
                                                         key={bulan}
                                                         className="w-[150px]"
