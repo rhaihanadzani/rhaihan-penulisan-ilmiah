@@ -19,11 +19,11 @@ const Home = (props) => {
             <About />
             <HowItWorks />
             <Features />
-            <Services />
+            {/* <Services /> */}
             <Cta />
             <Testimonials />
-            <Team />
-            <FAQ />
+            {/* <Team />
+            <FAQ /> */}
             <Newsletter />
         </LayoutShell>
     );

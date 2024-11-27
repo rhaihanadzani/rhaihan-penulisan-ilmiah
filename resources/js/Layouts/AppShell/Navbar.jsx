@@ -19,6 +19,7 @@ import { buttonVariants } from "@/Components/ui/button";
 import { ModeToggle } from "@/Components/Home/components/mode-toggle";
 import { LogoIcon } from "@/Components/Home/components/icons";
 import { Link } from "@inertiajs/react";
+import Logo from "../../../../public/dashboard/logotasnim.png";
 
 const routeList = [
     {
@@ -43,15 +44,15 @@ export const Navbar = ({ auth }) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <header className="sticky border-b-[1px] top-0 z-40 w-full bg-white dark:border-b-slate-700 dark:bg-background">
-            <NavigationMenu className="mx-auto">
-                <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between ">
-                    <NavigationMenuItem className="font-bold flex">
+            <NavigationMenu className="mx-auto py-2">
+                <NavigationMenuList className="container h-14 px-4 w-screen flex justify-between">
+                    <NavigationMenuItem className="font-bold flex ">
                         <a
                             rel="noreferrer noopener"
                             href="/"
-                            className="ml-2 font-bold text-xl flex"
+                            className="ml-2 font-bold text-xl flex items-center gap-5 "
                         >
-                            <LogoIcon />
+                            <img src={Logo} alt=".." className="w-12 h-12 " />
                             PPTQ TASNIM
                         </a>
                     </NavigationMenuItem>

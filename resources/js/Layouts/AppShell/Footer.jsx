@@ -13,26 +13,26 @@ export const Footer = () => {
                         className="font-bold text-xl flex"
                     >
                         <LogoIcon />
-                        ShadcnUI/React
+                        Pondok Pesantren Tahfidzul Qur'an Tasnim
                     </a>
                 </div>
 
                 <div className="flex flex-col gap-2">
-                    <h3 className="font-bold text-lg">Follow US</h3>
+                    <h3 className="font-bold text-lg">Follow Us</h3>
                     <div>
                         <a
                             rel="noreferrer noopener"
-                            href="#"
+                            href="https://www.instagram.com/tasnim.quran/"
                             className="opacity-60 hover:opacity-100"
                         >
-                            Github
+                            Instagram
                         </a>
                     </div>
 
                     <div>
                         <a
                             rel="noreferrer noopener"
-                            href="#"
+                            href="https://twitter.com/TasnimQuran"
                             className="opacity-60 hover:opacity-100"
                         >
                             Twitter
@@ -42,10 +42,10 @@ export const Footer = () => {
                     <div>
                         <a
                             rel="noreferrer noopener"
-                            href="#"
+                            href="https://www.youtube.com/channel/UCXkTsGhOWdnozHvN2VxYoFg"
                             className="opacity-60 hover:opacity-100"
                         >
-                            Dribbble
+                            YouTube
                         </a>
                     </div>
                 </div>
@@ -91,7 +91,7 @@ export const Footer = () => {
                             href="#"
                             className="opacity-60 hover:opacity-100"
                         >
-                            Features
+                            Tentang Kami
                         </a>
                     </div>
 
@@ -101,7 +101,7 @@ export const Footer = () => {
                             href="#"
                             className="opacity-60 hover:opacity-100"
                         >
-                            Pricing
+                            Program Pengajaran
                         </a>
                     </div>
 
@@ -111,20 +111,30 @@ export const Footer = () => {
                             href="#"
                             className="opacity-60 hover:opacity-100"
                         >
-                            FAQ
+                            Galeri
                         </a>
                     </div>
                 </div>
 
                 <div className="flex flex-col gap-2">
-                    <h3 className="font-bold text-lg">Community</h3>
+                    <h3 className="font-bold text-lg">Contact</h3>
                     <div>
                         <a
                             rel="noreferrer noopener"
-                            href="#"
+                            href="mailto:info@tasnimquran.com"
                             className="opacity-60 hover:opacity-100"
                         >
-                            Youtube
+                            Email
+                        </a>
+                    </div>
+
+                    <div>
+                        <a
+                            rel="noreferrer noopener"
+                            href="tel:+628123456789"
+                            className="opacity-60 hover:opacity-100"
+                        >
+                            Telepon
                         </a>
                     </div>
 
@@ -134,17 +144,7 @@ export const Footer = () => {
                             href="#"
                             className="opacity-60 hover:opacity-100"
                         >
-                            Discord
-                        </a>
-                    </div>
-
-                    <div>
-                        <a
-                            rel="noreferrer noopener"
-                            href="#"
-                            className="opacity-60 hover:opacity-100"
-                        >
-                            Twitch
+                            Lokasi
                         </a>
                     </div>
                 </div>
@@ -152,14 +152,15 @@ export const Footer = () => {
 
             <section className="container pb-14 text-center">
                 <h3>
-                    &copy; 2024 Landing page made by{" "}
+                    &copy; 2024 Pondok Pesantren Tahfidzul Qur'an Tasnim | Made
+                    with ❤️ by{" "}
                     <a
                         rel="noreferrer noopener"
                         target="_blank"
-                        href="https://github.com/leoMirandaa"
+                        href="https://www.linkedin.com/in/leo-miranda/"
                         className="text-primary transition-all border-primary hover:border-b-2"
                     >
-                        Leo Miranda
+                        Adzani
                     </a>
                 </h3>
             </section>

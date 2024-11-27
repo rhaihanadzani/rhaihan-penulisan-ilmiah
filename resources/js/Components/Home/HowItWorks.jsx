@@ -1,30 +1,35 @@
 import { Card, CardHeader, CardContent, CardTitle } from "../ui/card";
-import { GiftIcon, MapIcon, MedalIcon, PlaneIcon } from "./components/icons";
+import {
+    FaChalkboardTeacher,
+    FaBookOpen,
+    FaUsers,
+    FaHandsHelping,
+} from "react-icons/fa";
 
 const features = [
     {
-        icon: <MedalIcon />,
-        title: "Accessibility",
+        icon: <FaChalkboardTeacher size={40} className="text-primary" />, // Ikon pengajar
+        title: "Pengajaran & Pembelajaran",
         description:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+            "Santri belajar dari pengajar berkompeten yang mengajarkan berbagai disiplin ilmu, baik agama maupun umum.",
     },
     {
-        icon: <MapIcon />,
-        title: "Community",
+        icon: <FaBookOpen size={40} className="text-primary" />, // Ikon buku
+        title: "Pendidikan Qur'an",
         description:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+            "Proses penghafalan dan pembelajaran Qur'an dilakukan dengan metode yang efektif dan terstruktur.",
     },
     {
-        icon: <PlaneIcon />,
-        title: "Scalability",
+        icon: <FaUsers size={40} className="text-primary" />, // Ikon komunitas
+        title: "Komunitas & Keharmonisan",
         description:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+            "Membangun hubungan yang harmonis antara sesama santri dan ustadz untuk menciptakan lingkungan belajar yang kondusif.",
     },
     {
-        icon: <GiftIcon />,
-        title: "Gamification",
+        icon: <FaHandsHelping size={40} className="text-primary" />, // Ikon membantu
+        title: "Kepedulian Sosial",
         description:
-            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quas provident cum",
+            "Santri dilibatkan dalam berbagai kegiatan sosial sebagai bentuk tanggung jawab terhadap masyarakat.",
     },
 ];
 
@@ -35,15 +40,16 @@ export const HowItWorks = () => {
             className="container text-center py-24 sm:py-32"
         >
             <h2 className="text-3xl md:text-4xl font-bold ">
-                How It{" "}
+                Cara Kami{" "}
                 <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-                    Works{" "}
+                    Mengajarkan
                 </span>
-                Step-by-Step Guide
+                Langkah Demi Langkah
             </h2>
+
             <p className="md:w-3/4 mx-auto mt-4 mb-8 text-xl text-muted-foreground">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                Veritatis dolor pariatur sit!
+                Berikut adalah langkah-langkah yang ada di pondok pesantren
+                dalam mendidik dan membina santri.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

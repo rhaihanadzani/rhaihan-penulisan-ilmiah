@@ -5,51 +5,47 @@ import {
     CardHeader,
     CardTitle,
 } from "@/Components/ui/card";
-import image from "../../../../public/home/growth.png";
-import image3 from "../../../../public/home/reflecting.png";
-import image4 from "../../../../public/home/looking-ahead.png";
+import image from "../../../../public/home/liburan.png";
+import image3 from "../../../../public/home/pembayaran.png";
+import image4 from "../../../../public/home/absen.png";
 import { Badge } from "../ui/badge";
 
 const features = [
     {
-        title: "Responsive Design",
+        title: "Laporan Absensi Santri",
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+            "Fitur ini memungkinkan pengelolaan absensi santri secara digital, memudahkan pengawasan kehadiran santri di pondok pesantren.",
         image: image4,
     },
     {
-        title: "Intuitive user interface",
+        title: "Laporan Pembayaran Santri",
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+            "Memudahkan pencatatan dan pengelolaan transaksi pembayaran santri, mulai dari biaya pendidikan hingga kebutuhan lainnya.",
         image: image3,
     },
     {
-        title: "AI-Powered insights",
+        title: "Laporan Liburan Santri",
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi nesciunt est nostrum omnis ab sapiente.",
+            "Fitur ini memantau jadwal liburan dan kepulangan santri, memastikan manajemen waktu yang efektif selama periode liburan.",
         image: image,
     },
 ];
 
 const featureList = [
-    "Dark/Light theme",
-    "Reviews",
-    "Features",
-    "Pricing",
-    "Contact form",
-    "Our team",
-    "Responsive design",
-    "Newsletter",
-    "Minimalist",
+    "Laporan Absensi",
+    "Laporan Pembayaran",
+    "Laporan Liburan",
+    "Pemantauan Kesehatan Santri",
+    "Pengelolaan Jadwal Pengajian",
 ];
 
 export const Features = () => {
     return (
         <section id="features" className="container py-24 sm:py-32 space-y-8">
             <h2 className="text-3xl lg:text-4xl font-bold md:text-center">
-                Many{" "}
+                Fitur{" "}
                 <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-                    Great Features
+                    Unggulan
                 </span>
             </h2>
 
@@ -75,7 +71,7 @@ export const Features = () => {
                         <CardFooter>
                             <img
                                 src={image}
-                                alt="About feature"
+                                alt={title}
                                 className="w-[200px] lg:w-[300px] mx-auto"
                             />
                         </CardFooter>
