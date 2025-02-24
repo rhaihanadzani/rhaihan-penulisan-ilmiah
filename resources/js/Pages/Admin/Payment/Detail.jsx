@@ -28,6 +28,16 @@ const Detail = () => {
             cardPayment: cardPayment.name,
             user: user.name,
         };
+        // console.log(data.phone);
+        if (!data.phone) {
+            MySwal.fire({
+                title: "Gagal",
+                text: "Nomor Telepon tidak terdaftar",
+                icon: "error",
+                confirmButtonColor: "#10B981",
+            });
+            return;
+        }
         router.post("/wa-gateway", data, {
             onSuccess: () => {
                 // router.visit(`/admin/user/santri`);

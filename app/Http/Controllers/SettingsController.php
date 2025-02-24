@@ -15,7 +15,16 @@ class SettingsController extends Controller
 
     public function index()
     {
-        return Inertia::render('Settings/Index');
+        $userId = auth()->id();
+        if (!$userId) {
+            return redirect()->route('login');
+        }
+
+        $user = User::with('profile')->select('id', 'name', 'email', 'profile_id')->find($userId);
+        // dd($user);
+        return Inertia::render('Settings/Index', [
+            'user' => $user
+        ]);
     }
     public function view_data()
     {
@@ -35,6 +44,7 @@ class SettingsController extends Controller
 
     public function update_data(Request $request, $id)
     {
+        // dd($request->all());
 
         $profile = Profiles::where('id', $id)->firstOrFail();
 

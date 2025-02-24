@@ -8,7 +8,7 @@ import axios from "axios";
 
 const MySwal = withReactContent(Swal);
 
-const LengkapiData = ({ isLoading, setIsLoading, dataUser }) => {
+const LengkapiData = ({ dataUser }) => {
     const [phone, setPhone] = useState(dataUser.profile.phone);
     const [bio, setBio] = useState(dataUser.profile.bio);
     const [image, setImage] = useState(null);
@@ -32,7 +32,6 @@ const LengkapiData = ({ isLoading, setIsLoading, dataUser }) => {
 
         router.post(`/settings-update-data/${dataUser.profile.id}`, formData, {
             onSuccess: () => {
-                setIsLoading(false);
                 setIsDataSend(false);
                 MySwal.fire({
                     title: "Berhasil",
@@ -41,7 +40,6 @@ const LengkapiData = ({ isLoading, setIsLoading, dataUser }) => {
                 });
             },
             onError: () => {
-                setIsLoading(false);
                 setIsDataSend(false);
                 MySwal.fire({
                     title: "Gagal",
@@ -250,11 +248,7 @@ const LengkapiData = ({ isLoading, setIsLoading, dataUser }) => {
                     </div>
                 </div>
             </div>
-            <ChangePassword
-                dataUser={dataUser}
-                isLoading={isLoading}
-                setIsLoading={setIsLoading}
-            />
+            <ChangePassword dataUser={dataUser} />
         </div>
     );
 };

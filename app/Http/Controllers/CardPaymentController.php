@@ -43,6 +43,11 @@ class CardPaymentController extends Controller
         $cardPayment = $request->cardPayment;
         $user = $request->user;
 
+        // dd($phone);
+        if (!$phone) {
+            return redirect()->back()->with('message', 'Phone number is required');
+        }
+
         $token = 'aLyoksna5rU1Pt77KQm7';
         $formattedMonths = implode(', ', array_map(fn($month) => "*$month*", explode(', ', $unpaidMonths)));
 

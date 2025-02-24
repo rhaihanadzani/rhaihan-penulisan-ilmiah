@@ -7,19 +7,8 @@ import { useEffect, useState } from "react";
 import LoadingSetting from "./Partial/LoadingSetting";
 
 const Index = () => {
-    const { auth } = usePage().props;
-
-    const [dataUser, setDataUser] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        fetch("/settings-view-data").then((res) => {
-            res.json().then((data) => {
-                setDataUser(data);
-                setIsLoading(false);
-            });
-        });
-    }, [isLoading]);
+    const { auth, user } = usePage().props;
+    console.log(user);
 
     let Layout;
 
@@ -36,15 +25,7 @@ const Index = () => {
     return (
         <Layout>
             <div>
-                {isLoading && dataUser === null ? (
-                    <LoadingSetting />
-                ) : (
-                    <LengkapiData
-                        dataUser={dataUser}
-                        isLoading={isLoading}
-                        setIsLoading={setIsLoading}
-                    />
-                )}
+                <LengkapiData dataUser={user} />
             </div>
         </Layout>
     );
