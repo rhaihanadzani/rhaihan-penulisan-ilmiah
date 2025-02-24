@@ -35,6 +35,7 @@ class CardPaymentController extends Controller
     }
     public function waGateway(Request $request)
     {
+        // dd($request->all());
 
 
         $phone = $request->phone;
@@ -42,7 +43,7 @@ class CardPaymentController extends Controller
         $cardPayment = $request->cardPayment;
         $user = $request->user;
 
-        $token = 'UutPamZtoq714qDrFvkp';
+        $token = 'aLyoksna5rU1Pt77KQm7';
         $formattedMonths = implode(', ', array_map(fn($month) => "*$month*", explode(', ', $unpaidMonths)));
 
 
@@ -73,6 +74,6 @@ class CardPaymentController extends Controller
         curl_close($curl);
         echo $response;
 
-        return redirect()->back();
+        return redirect()->back()->with('message', 'Pesan berhasil dikirim');
     }
 }

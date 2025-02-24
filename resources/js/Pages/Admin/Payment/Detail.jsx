@@ -2,6 +2,8 @@ import { Button } from "@/Components/ui/button";
 import DashboardLayoutAdmin from "@/Layouts/DashboardLayoutAdmin";
 import { formatToRupiah } from "@/lib/utils";
 import { router, usePage } from "@inertiajs/react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const Detail = () => {
     const { cardPayment, bulanList, flash, user } = usePage().props;
@@ -13,9 +15,12 @@ const Detail = () => {
         .map(([key]) => key)
         .join(", ");
 
+    console.log(flash);
+    const MySwal = withReactContent(Swal);
+
     // console.log(unpaidMonths);
     // console.log(user);
-    console.log(cardPayment);
+    // console.log(cardPayment);
     const sendWa = () => {
         const data = {
             phone: user.profile.phone,
@@ -23,8 +28,31 @@ const Detail = () => {
             cardPayment: cardPayment.name,
             user: user.name,
         };
-        router.post("/wa-gateway", data);
+        router.post("/wa-gateway", data, {
+            onSuccess: () => {
+                // router.visit(`/admin/user/santri`);
+                MySwal.fire({
+                    title: "Pesan Berhasil Terkirim",
+                    icon: "success",
+                    confirmButtonColor: "#10B981",
+                    html:
+                        '<div id="customButtons">' +
+                        '<button id="closeButton" class="swal2-cancel swal2-styled" style="background-color: #d33;">Close</button>' +
+                        "</div>",
+                    showConfirmButton: false,
+                    showCancelButton: false,
+                    didRender: () => {
+                        document
+                            .getElementById("closeButton")
+                            .addEventListener("click", () => {
+                                MySwal.close();
+                            });
+                    },
+                });
+            },
+        });
     };
+
     return (
         <DashboardLayoutAdmin>
             <div className="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark mt-10">
@@ -33,7 +61,7 @@ const Detail = () => {
                         Detail Pembayaran
                     </h3>
                     <div>
-                        <Button onClick={() => sendWa()}>Kirim</Button>
+                        <Button onClick={() => sendWa()}>Kirim Pesan</Button>
                     </div>
                 </div>
                 <div className="max-w-full overflow-x-auto">

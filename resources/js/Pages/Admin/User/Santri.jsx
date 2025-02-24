@@ -10,6 +10,7 @@ const CreateSantri = (props) => {
     const [kelas, setKelas] = useState("");
     const [nama, setNama] = useState("");
     const [email, setEmail] = useState("");
+    const [noWa, setNoWa] = useState("");
     const [password, setPassword] = useState("");
     const { errors } = usePage().props;
 
@@ -46,6 +47,7 @@ const CreateSantri = (props) => {
             email,
             nama,
             password,
+            noWa,
         };
 
         router.post("/admin/user/santri", data, {
@@ -113,6 +115,15 @@ const CreateSantri = (props) => {
                                 ))}
                             </select>
                         </div>
+                    </div>
+                    <div>
+                        <InputLabel value={"No WhatsApp"} />
+                        <input
+                            onChange={(e) => setNoWa(e.target.value)}
+                            type="number"
+                            placeholder="6282xxxxxx"
+                            className="w-full rounded-lg border-[1.5px] border-stroke bg-transparent py-3 px-5 text-black outline-none transition focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter dark:border-form-strokedark dark:bg-form-input dark:text-white dark:focus:border-primary"
+                        />
                     </div>
                     <div>
                         <InputLabel value={"Email"} />

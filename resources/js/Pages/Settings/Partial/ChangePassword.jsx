@@ -1,4 +1,4 @@
-import { Mail } from "lucide-react";
+import { Key } from "lucide-react";
 
 const ChangePassword = ({ isLoading, setIsLoading, dataUser }) => {
     return (
@@ -17,19 +17,17 @@ const ChangePassword = ({ isLoading, setIsLoading, dataUser }) => {
                                 className="mb-3 block text-sm font-medium text-black dark:text-white"
                                 htmlFor="emailAddress"
                             >
-                                Email Address
+                                Current Password
                             </label>
                             <div className="relative">
                                 <span className="absolute left-4 top-[12px]">
-                                    <Mail className="text-primary" />
+                                    <Key className="text-primary" />
                                 </span>
                                 <input
                                     className="w-full rounded border border-stroke bg-gray py-3 pl-11 pr-4 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                                     type="email"
                                     name="emailAddress"
                                     id="emailAddress"
-                                    placeholder="devidjond45@gmail.com"
-                                    defaultValue="devidjond45@gmail.com"
                                 />
                             </div>
                         </div>
@@ -38,19 +36,17 @@ const ChangePassword = ({ isLoading, setIsLoading, dataUser }) => {
                                 className="mb-3 block text-sm font-medium text-black dark:text-white"
                                 htmlFor="emailAddress"
                             >
-                                Email Address
+                                New Password
                             </label>
                             <div className="relative">
                                 <span className="absolute left-4 top-[12px]">
-                                    <Mail className="text-primary" />
+                                    <Key className="text-primary" />
                                 </span>
                                 <input
                                     className="w-full rounded border border-stroke bg-gray py-3 pl-11 pr-4 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
-                                    type="email"
+                                    type="password"
                                     name="emailAddress"
                                     id="emailAddress"
-                                    placeholder="devidjond45@gmail.com"
-                                    defaultValue="devidjond45@gmail.com"
                                 />
                             </div>
                         </div>
@@ -59,19 +55,17 @@ const ChangePassword = ({ isLoading, setIsLoading, dataUser }) => {
                                 className="mb-3 block text-sm font-medium text-black dark:text-white"
                                 htmlFor="emailAddress"
                             >
-                                Email Address
+                                Confirm New Password
                             </label>
                             <div className="relative">
                                 <span className="absolute left-4 top-[12px]">
-                                    <Mail className="text-primary" />
+                                    <Key className="text-primary" />
                                 </span>
                                 <input
                                     className="w-full rounded border border-stroke bg-gray py-3 pl-11 pr-4 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-meta-4 dark:text-white dark:focus:border-primary"
                                     type="email"
                                     name="emailAddress"
                                     id="emailAddress"
-                                    placeholder="devidjond45@gmail.com"
-                                    defaultValue="devidjond45@gmail.com"
                                 />
                             </div>
                         </div>
