@@ -29,7 +29,7 @@ const DropdownUser = ({ dataUser }) => {
                     <img
                         src={
                             isImageUser
-                                ? `/storage/profile/photo/${dataUser.profile.image}`
+                                ? `/storage/public/profile/photo/${dataUser.profile.image}`
                                 : UserOne
                         }
                         alt="User"
