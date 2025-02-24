@@ -22,7 +22,11 @@ const Ustadz = (props) => {
                     <div className="relative z-30 mx-auto -mt-24 h-32 w-full max-w-32 rounded-full bg-white/20 p-1 backdrop-blur sm:h-44 sm:max-w-44 sm:p-3">
                         <div className="relative drop-shadow-2 flex flex-col justify-center items-center w-full h-full">
                             <img
-                                src={isUserImage ? user.profile.image : userSix}
+                                src={
+                                    isUserImage
+                                        ? `/storage/public/profile/photo/${user.profile.image}`
+                                        : userSix
+                                }
                                 alt="profile"
                                 className=" w-full h-full object-cover object-center rounded-full"
                             />

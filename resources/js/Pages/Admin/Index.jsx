@@ -25,7 +25,7 @@ const Admin = () => {
                             <img
                                 src={
                                     isUserImage
-                                        ? `/storage/profile/photo/${user.profile.image}`
+                                        ? `/storage/public/profile/photo/${user.profile.image}`
                                         : userSix
                                 }
                                 alt="profile"

@@ -1,0 +1,1 @@
+import{j as t,a}from"./app-ee8c0df1.js";const e="/build/assets/noData-891c368f.png",l=()=>t("div",{className:"w-full mt-10 flex flex-col justify-center items-center gap-5",children:[a("img",{src:e,alt:"alo",className:"w-1/3"}),a("p",{className:"capitalize text-primary font-semibold text-3xl",children:"Data tidak ditemukan"})]});export{l as N};
